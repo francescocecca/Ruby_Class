@@ -1,0 +1,238 @@
+Scrivere appena entrati "irb" per iniziare ad usare la console
+
+Non esistono i tipi (niente double, int, ...) --> x=5
+
+Posso vedere che tipo di tipo e' una variabile con "x.class"
+
+Se faccio x=8/3 otterro' 2 come risultato perche' 8 e 3 sono int --> devo fare 8.0/3.0
+
+Other common command is x.next that display me the value next the value of the variable (es. x=9 --> x.next will give me the 10)
+The inverse for x.pred  (es. x=9 --> x.pred will give me the 8)
+
+With x.floor I arround the number down (4.7 floor --> 4) and with x.ceil around the number up
+With x.round I around the number up (if it is more, or equal, then 5 and down if it is less than 5)
+
+x.even? checks if the number is dividible per 2, x.odd? the opposite
+
+8** is usefull for do the square of 8 (8*8)
+
+x.to_i convert the number to integer and x.to_f convert the number to float (4.to_f --> 4.0)
+I can convert a number to a string with 5.to_s and I can convert a string to number ("5".to_s)
+An alternative way is "Integer(4.1)", "Float(4)" and String(5) 
+
+If I try to convert a string composted of letter to int or float i will obtain 0 or 0.0
+
+There is a difference beetween x="my text" and y='another text' because if I try to write '#{1=1}' i will obtain '#{1=1}'
+BUT if I write "#{1=1}", I will obtain "2"
+
+I can use this difference with the command puts 
+	my_score=22	
+	puts "Hi, my age is #{my_score}"
+
+I can check the length of a string with 
+	"Some text".length
+
+I can reverse a string with
+	"abcd".reverse
+
+I can change all the letter from minuscolo to maiuscolo with
+	"abc".upcase --> ABC
+Or I can the the inverse with
+	"abc".downcase --> abc (no effect this time)
+
+NOTE!! If i do an upcase/downcase and I use the command puts, I will see ciao written on the console
+	text="ciao"
+	text.upcase
+	puts text --> ciao
+
+If I write the following line i will obtain "i":
+	text="Ciao"
+	text[1]
+
+I can change a letter with:
+	text[2]='h'
+
+I can write a phrase in anj array with:
+	text.chairs -->  ["C", "i", "h", "o"]
+
+If I want to insert something beetween the letters:
+	["C", "i", "h", "o"].join('_') --> "C_i_h_o"
+
+I can create an array with []
+	 [2, 3, 7, "a", 10]
+The length of this array is 5
+
+If I have an array of number, I can sort it with
+	[10,12,100,1,3,4].sort
+I can do the same with the letters:
+	["v","x","w","a","b"].sort
+I can have some problem if I want to sort an array composed by number and letters
+
+I can reverse an array with:
+	["v","x","w","a","b"].reverse --> ["b", "a", "w", "x", "v"]
+
+
+If I want to repeat qualcosa:
+	10.times do 
+		puts "Hello there"
+	end
+
+Another way is:
+	10.times{puts "Hello there"}
+
+If I want to diaplay numbers from 
+	5.times do |i|
+		puts "Numbers #{i}"
+	end
+
+The result is:
+	Numbers 0
+	Numbers 1
+	Numbers 2
+	Numbers 3
+	Numbers 4
+	=> 5
+
+Another way is 5.times{|e| puts "Number: #{e}"} --> The result is the same
+
+If I want to iterate an array:
+	[2,4,10,5].each do |element|
+		puts "Element: #{element}"
+	end
+
+The result is:
+	Element: 2
+	Element: 4
+	Element: 10
+`	Element: 5
+	=> [2, 4, 10, 5]
+
+The other way is [2,4,10,5].each{|e| puts "Element: #{e}"} --> Same result
+
+If I want to create a range of numbers:
+	(1..10)
+
+I can see if a number is in the range:
+	(1..10).include?(4) --> true
+
+If i use 3 dots, it means that I don't have the last number:
+	(1...5).include?(5) --> false
+
+I can display tha numbers in a range:
+
+	(1..10).each{|i| puts i} --> from 1 to 10
+	(1...10).each{|i| puts i} --> from 1 to 9
+
+Each don't returns an array, for this I have to use map:
+
+	my_arr=(1..10).map{|i| i**2} --> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+I can filter the numbers in an array:
+
+	[1,2,3,4,5,6,7,8,9,10].filter do |e|
+		e>4
+	end
+
+Or I can filter the even numbers (pari)
+
+	[1,2,3,4,5,6,7,8,9,10].filter do |e|
+		e.even? // our condition
+	end
+
+If I want the number from 3 to 10:
+
+	3.upto(10){|i| puts i}
+
+With the downto function I do the inverse
+
+If I wanto to follow a step:
+
+	4.step(15,3){|i| puts i}
+
+The result is:
+
+	4
+	7
+	10
+	13
+
+If I want patiotions of my array:
+	
+	a,b=[2,3,4,5,6,7,8].partition{|i| i.even?}
+
+The result is: [[2, 4, 6, 8], [3, 5, 7]]
+
+Another example is: a,b=[2,3,4,5,6,7,8].partition{|i| i>5}
+
+If I want to know if the numbere are > 3
+	
+	[2,3,4,5,6,7,8].all?{|i| i>3} --> false
+
+If I want to know if one numbere is > 3
+
+	[2,3,4,5,6,7,8].any?{|i| i>3} --> true
+
+I can filter the number with the function select too:
+
+	[2,3,4,5,6,7,8].select{|i| i>3} --> [4,5,6,7,8]
+
+A similar function is find, but it find the first number that soddisfy the condition:
+
+	[2,3,4,5,6,7,8].find{|i| i>3} --> 4
+
+I can delete the numbers that appears more than one time:
+
+	[1,1,3,1,4,5,3].uniq --> [1, 3, 4, 5]
+
+I can delete the element from an array:
+
+	arr=[1,2,3,4,5]
+	arr.delete_at(1) // elimina l'elemento in posizione 1 (2)
+
+If i want an array from 1 to 10:
+
+	[*1..10] --> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+The same with the lecters
+
+	("a".."z").each{|i| puts i}
+
+I can have all di compination of letters in the following case:
+
+	("aa".."zz").each{|i| puts i}
+
+As in every language, we have the condition:
+
+	if condition
+	elsif condition
+	else
+	end
+
+An example:
+
+	x=0
+	if x==0
+		puts "x is 0"
+	else
+		puts "x is not 0"
+	end
+
+NOTE!! Another way for write x==0 is x.zero? --> it will returns true or false
+
+The negation is !x.zero?
+
+An easy way for the condition is:
+
+	x=4
+	x>3? puts("Yes"):("No")
+
+An easy way for the condition is:
+
+	x=2
+	puts "x is grater than 1" if x>1
+
+FOR LOOP (poco usato, meglio la forma vista prima, piu easy)
+
+	for k in 1..10 do
+		put "Current value: #{k}"
+	end
