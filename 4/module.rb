@@ -24,6 +24,12 @@ module MyModule
       puts "TestClass in MyModule"
     end
   end
+
+  class MyClass
+    def self.test
+      puts "I'm in MyClass"
+    end
+  end
 end
 
 class TestClass
@@ -34,3 +40,4 @@ end
 
 TestClass.test
 MyModule::TestClass.test
+MyModule::MyClass.test
