@@ -1,0 +1,21 @@
+Per creare una nuova app "rails new raels_tutorial_api --api --database=postgresql"
+
+Per creare un nuovo controller "rails generate controller example"
+
+In routes.rb uncommento " root "posts#index" " e al posto di posts ci scrivo example
+
+PASSWORD DATABASE SUPERBASE: tjcNfCBP9mA1K1me
+
+Dopo aver creato il database su superbase, vado in database.yml e alla fine inserisco:
+
+external:
+  adapter: postgresql
+  encoding: unicode
+  host: db.qizskmpohtydkjqzxqza.supabase.co
+  database: postgres
+  port: 5432
+  user: postgres
+  password: tjcNfCBP9mA1K1me
+
+Ora da command "set RAILS_ENV=external" e poi "rails server"
+
