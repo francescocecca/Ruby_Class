@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_24_165501) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_24_165958) do
   create_table "active_courses", id: false, force: :cascade do |t|
     t.integer "student_id", null: false
     t.integer "course_id", null: false
@@ -71,5 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_24_165501) do
     t.index ["roles_id"], name: "index_users_on_roles_id"
   end
 
+  add_foreign_key "active_courses", "courses"
+  add_foreign_key "active_courses", "students"
   add_foreign_key "users", "roles", column: "roles_id"
 end

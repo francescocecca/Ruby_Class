@@ -1,0 +1,2 @@
+class ActiveCourse < ApplicationRecord
+end
