@@ -18,27 +18,32 @@ User.create(
   [{
     first_name: "John",
     last_name: "Doe",
-    email: "jdoe@edu.pl"
+    email: "jdoe@edu.pl",
+    roles_id: 1,
     },
     {
       first_name: "Max",
       last_name: "Bo",
-      email: "mbo@edu.pl"
+      email: "mbo@edu.pl",
+      roles_id: 2,
     },
     {
       first_name: "Mill",
       last_name: "Lal",
-      email: "mlal@edu.pl"
+      email: "mlal@edu.pl",
+      roles_id: 1,
     },
     {
       first_name: "Pho",
       last_name: "Xin",
-      email: "pxin@edu.pl"
+      email: "pxin@edu.pl",
+      roles_id: 1,
     },
     {
       first_name: "Pio",
       last_name: "Cecca",
-      email: "fcecca@edu.pl"
+      email: "fcecca@edu.pl",
+      roles_id: 3,
     }
   ]
 )
@@ -61,3 +66,21 @@ Role.create(
 
 # Prima di usare rails c, lancio su command line rails db:seed
 # Ho già gli user
+
+TestStudent.create(
+  [
+    {
+      first_name: "A",
+      last_name: "B",
+      email: "C",
+      semester: 4,
+    },
+    {
+      first_name: "B",
+      last_name: "B",
+      email: "x",
+      semester: 5,
+    },
+  ]
+
+)

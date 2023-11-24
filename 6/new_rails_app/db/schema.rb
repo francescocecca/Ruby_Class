@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_24_153959) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_24_165501) do
+  create_table "active_courses", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "course_id", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "good_users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "role_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_courses", force: :cascade do |t|
+    t.string "name"
+    t.integer "ects"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "semester"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,4 +71,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_24_153959) do
     t.index ["roles_id"], name: "index_users_on_roles_id"
   end
 
+  add_foreign_key "users", "roles", column: "roles_id"
 end

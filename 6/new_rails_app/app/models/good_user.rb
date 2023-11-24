@@ -1,0 +1,3 @@
+class GoodUser < ApplicationRecord
+
+end
